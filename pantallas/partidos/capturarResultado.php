@@ -13,7 +13,9 @@ function capturarResultado(&$datos) {
     $ids             = array_column($pendientes, 'id');
     echo "  (0 para cancelar)\n";
     $id_partido      = pedirEntero("ID del partido",     array_merge($ids, [0]));
-    if ($id_partido === 0) return;
+    if ($id_partido === 0) {
+        return;
+    }
     $goles_local     = (int)readline("Goles local     : ");
     $goles_visitante = (int)readline("Goles visitante : ");
     if (registrarResultado($datos, $id_partido, $goles_local, $goles_visitante)) {

@@ -12,9 +12,13 @@ function programarPartido(&$datos) {
     $ids = array_column($datos['equipos'], 'id');
     echo "  (0 para cancelar)\n";
     $id_local     = pedirEntero("ID equipo local",     array_merge($ids, [0]));
-    if ($id_local === 0) return;
+    if ($id_local === 0) {
+        return;
+    }
     $id_visitante = pedirEntero("ID equipo visitante", array_merge($ids, [0]));
-    if ($id_visitante === 0) return;
+    if ($id_visitante === 0) {
+        return;
+    }
     if ($id_local === $id_visitante) {
         echo "\n  Un equipo no puede jugar contra si mismo.\n";
         esperarEnter();

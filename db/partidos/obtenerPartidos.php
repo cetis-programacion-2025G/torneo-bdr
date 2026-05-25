@@ -6,8 +6,12 @@ function obtenerPartidos(&$datos) {
         $local     = null;
         $visitante = null;
         for ($j = 0; $j < count($datos['equipos']); $j++) {
-            if ($datos['equipos'][$j]['id'] === $p['id_local'])     $local     = $datos['equipos'][$j];
-            if ($datos['equipos'][$j]['id'] === $p['id_visitante']) $visitante = $datos['equipos'][$j];
+            if ($datos['equipos'][$j]['id'] === $p['id_local']) {
+                $local     = $datos['equipos'][$j];
+            }
+            if ($datos['equipos'][$j]['id'] === $p['id_visitante']) {
+                $visitante = $datos['equipos'][$j];
+            }
         }
         $resultado[] = [
             'id'              => $p['id'],
