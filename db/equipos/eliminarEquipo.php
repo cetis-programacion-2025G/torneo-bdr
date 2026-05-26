@@ -1,12 +1,12 @@
 <?php
-// TODO (MySQL):
-// DELETE FROM equipos WHERE id = ?
-function eliminarEquipo(&$datos, $id) {
-    for ($i = 0; $i < count($datos['equipos']); $i++) {
-        if ($datos['equipos'][$i]['id'] === $id) {
-            array_splice($datos['equipos'], $i, 1);
-            return true;
-        }
+function eliminarEquipo($conn, $id) {
+    $consulta = "DELETE FROM equipos WHERE id = ?";
+    $stmt = $conn->prepare($consulta);
+    $stmt->bind_param("i", $id);
+    $result = $stmt->execute();
+    $stmt->close(); 
+    if (!$result) {
+        return false;
     }
-    return false;
+    return true;
 }

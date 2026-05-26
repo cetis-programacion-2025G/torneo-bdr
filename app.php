@@ -25,7 +25,7 @@ while (!$salir) {
 
     switch ($opcion) {
         case 1:
-            menuEquipos($datos, $conn);
+            menuEquipos($conn);
             break;
         case 2:
             menuPartidos($datos);

@@ -1,5 +1,5 @@
 <?php
-function editarEquipo(&$datos,  $conn) {
+function editarEquipo($conn) {
     limpiarPantalla();
     echo "\n";
     titulo("EDITAR EQUIPO", 54);

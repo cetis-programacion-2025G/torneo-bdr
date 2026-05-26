@@ -1,5 +1,5 @@
 <?php
-function menuEquipos(&$datos, $conn) {
+function menuEquipos($conn) {
     $salir = false;
     while (!$salir) {
         limpiarPantalla();
@@ -20,10 +20,10 @@ function menuEquipos(&$datos, $conn) {
                 agregarEquipo($conn);
                 break;
             case 2:
-                editarEquipo($datos, $conn);
+                editarEquipo($conn);
                 break;
             case 3:
-                eliminarEquipoUI($datos);
+                eliminarEquipoUI($conn);
                 break;
             case 0:
                 $salir = true;

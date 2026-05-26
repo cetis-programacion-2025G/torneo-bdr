@@ -1,14 +1,15 @@
 <?php
-function eliminarEquipoUI(&$datos) {
+function eliminarEquipoUI($conn) {
     limpiarPantalla();
     echo "\n";
     titulo("ELIMINAR EQUIPO", 54);
-    listarEquipos($datos);
-    if (empty($datos['equipos'])) {
+    listarEquipos($conn);
+    $equipos = obtenerEquipos($conn);
+    if (count($equipos) === 0) {
         esperarEnter();
         return;
     }
-    $ids = array_column($datos['equipos'], 'id');
+    $ids = array_column($equipos, 'id');
     echo "  (0 para cancelar)\n";
     $id = pedirEntero("ID a eliminar", array_merge($ids, [0]));
     if ($id === 0) {
@@ -16,7 +17,11 @@ function eliminarEquipoUI(&$datos) {
         esperarEnter();
         return;
     }
-    $ok = eliminarEquipo($datos, $id);
-    echo $ok ? "\n  Equipo eliminado.\n" : "\n  Equipo no encontrado.\n";
+    $ok = eliminarEquipo($conn, $id);
+    if($ok) {
+        echo "\n  Equipo eliminado.\n";
+    } else {
+        echo "\n  Equipo no encontrado.\n";
+    }
     esperarEnter();
 }
