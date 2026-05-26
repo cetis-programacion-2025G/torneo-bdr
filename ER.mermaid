@@ -1,0 +1,19 @@
+erDiagram
+
+equipos {
+    INT id PK
+    VARCHAR(50) nombre "NN"
+    VARCHAR(50) ciudad "NN"
+}
+
+partidos {
+    INT id PK
+    INT equipo_local_id FK "NN"
+    INT equipo_visitante_id FK "NN"
+    INT goles_local "NN"
+    INT goles_visitante "NN"
+    TINYINT estado "NN"
+}
+
+equipos ||--o{ partidos : "equipo_local_id"
+equipos ||--o{ partidos : "equipo_visitante_id"

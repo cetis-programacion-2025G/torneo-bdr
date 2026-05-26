@@ -40,7 +40,6 @@ El equipo debe conservar el flujo principal del programa y reemplazar el uso de 
 ## 5. Funciones mínimas del sistema
 
 - Registrar equipos
-- Registrar jugadores y asociarlos a un equipo
 - Registrar partidos entre dos equipos
 - Registrar marcador de un partido
 - Consultar partidos jugados con sus marcadores
