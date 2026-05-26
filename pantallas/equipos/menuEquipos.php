@@ -1,11 +1,11 @@
 <?php
-function menuEquipos(&$datos) {
+function menuEquipos(&$datos, $conn) {
     $salir = false;
     while (!$salir) {
         limpiarPantalla();
         echo "\n";
         titulo("EQUIPOS", 54);
-        listarEquipos($datos);
+        listarEquipos($conn);
         echo "\n";
         echo str_repeat("─", 56) . "\n";
         echo " 1. Agregar equipo\n";

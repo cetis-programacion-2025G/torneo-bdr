@@ -1,6 +1,6 @@
 <?php
-function listarEquipos(&$datos) {
-    $filas = obtenerEquipos($datos);
+function listarEquipos($conn) {
+    $filas = obtenerEquipos($conn);
     $columnas = [
         ['titulo' => 'ID',     'clave' => 'id',     'ancho' => 4],
         ['titulo' => 'Nombre', 'clave' => 'nombre', 'ancho' => 20],

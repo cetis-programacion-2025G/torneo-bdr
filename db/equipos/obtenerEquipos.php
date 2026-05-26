@@ -1,6 +1,11 @@
 <?php
-// TODO (MySQL):
-// SELECT * FROM equipos ORDER BY nombre
-function obtenerEquipos(&$datos) {
-    return $datos['equipos'];
+
+function obtenerEquipos($conn) {
+    $consulta = "SELECT id, nombre, ciudad FROM equipos";
+    $resultado = $conn->query($consulta);
+    if ($resultado) {
+        $equipos = $resultado->fetch_all(MYSQLI_ASSOC);
+        return $equipos;
+    }
+    return [];
 }

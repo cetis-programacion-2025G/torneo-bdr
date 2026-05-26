@@ -1,11 +1,11 @@
 <?php
 function datosIniciales() {
     $equipos = [
-        ['id' => 1, 'nombre' => 'Los Toros',   'ciudad' => 'Guadalajara'],
-        ['id' => 2, 'nombre' => 'Los Tigres',  'ciudad' => 'Monterrey'],
-        ['id' => 3, 'nombre' => 'Las Aguilas', 'ciudad' => 'Ciudad de Mexico'],
-        ['id' => 4, 'nombre' => 'Los Rayados', 'ciudad' => 'Monterrey'],
-        ['id' => 5, 'nombre' => 'Las Chivas',  'ciudad' => 'Guadalajara'],
+        ['id' => 1, 'nombre' => 'Los Toros []',   'ciudad' => 'Guadalajara []'],
+        ['id' => 2, 'nombre' => 'Los Tigres []',  'ciudad' => 'Monterrey []'],
+        ['id' => 3, 'nombre' => 'Las Aguilas []', 'ciudad' => 'Ciudad de Mexico []'],
+        ['id' => 4, 'nombre' => 'Los Rayados []', 'ciudad' => 'Monterrey []'],
+        ['id' => 5, 'nombre' => 'Las Chivas []',  'ciudad' => 'Guadalajara []'],
     ];
 
     $partidos = [

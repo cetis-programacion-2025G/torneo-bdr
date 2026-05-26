@@ -6,8 +6,7 @@
 
 require_once 'funciones.php';
 
-// TODO: cuando implementes MySQL, reemplaza las dos lineas siguientes por:
-//   $conn = conectar();
+$conn = conectar();
 $datos = datosIniciales();
 
 $salir = false;
@@ -26,7 +25,7 @@ while (!$salir) {
 
     switch ($opcion) {
         case 1:
-            menuEquipos($datos);
+            menuEquipos($datos, $conn);
             break;
         case 2:
             menuPartidos($datos);
