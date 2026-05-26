@@ -3,8 +3,15 @@ function capturarResultado(&$datos) {
     limpiarPantalla();
     echo "\n";
     titulo("REGISTRAR RESULTADO", 70);
-    listarPartidos($datos);
     $pendientes = array_values(array_filter($datos['partidos'], fn($p) => !$p['jugado']));
+    $todasFilas      = obtenerPartidos($datos);
+    $filasPendientes = array_values(array_filter($todasFilas, fn($f) => $f['jugado'] === 'Pendiente'));
+    $columnas = [
+        ['titulo' => 'ID',        'clave' => 'id',        'ancho' => 4],
+        ['titulo' => 'Local',     'clave' => 'local',     'ancho' => 20],
+        ['titulo' => 'Visitante', 'clave' => 'visitante', 'ancho' => 20],
+    ];
+    dibujarTabla($filasPendientes, $columnas);
     if (empty($pendientes)) {
         echo "\n  No hay partidos pendientes.\n";
         esperarEnter();

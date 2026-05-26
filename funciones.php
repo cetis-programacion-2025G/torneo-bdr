@@ -18,6 +18,8 @@ require_once 'funciones/conexion.php';
 require_once 'db/equipos/obtenerEquipos.php';
 require_once 'db/equipos/buscarEquipo.php';
 require_once 'db/equipos/insertarEquipo.php';
+require_once 'db/equipos/actualizarEquipo.php';
+require_once 'db/equipos/eliminarEquipo.php';
 
 // --- DB: Partidos ---
 require_once 'db/partidos/obtenerPartidos.php';
@@ -27,6 +29,8 @@ require_once 'db/partidos/registrarResultado.php';
 // --- Pantallas: Equipos ---
 require_once 'pantallas/equipos/listarEquipos.php';
 require_once 'pantallas/equipos/agregarEquipo.php';
+require_once 'pantallas/equipos/editarEquipo.php';
+require_once 'pantallas/equipos/eliminarEquipo.php';
 require_once 'pantallas/equipos/menuEquipos.php';
 
 // --- Pantallas: Partidos ---

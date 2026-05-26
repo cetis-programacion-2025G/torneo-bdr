@@ -5,22 +5,25 @@ function menuEquipos(&$datos) {
         limpiarPantalla();
         echo "\n";
         titulo("EQUIPOS", 54);
+        listarEquipos($datos);
+        echo "\n";
         echo str_repeat("─", 56) . "\n";
-        echo " 1. Ver equipos\n";
-        echo " 2. Agregar equipo\n";
+        echo " 1. Agregar equipo\n";
+        echo " 2. Editar equipo\n";
+        echo " 3. Eliminar equipo\n";
         echo " 0. Regresar\n";
         echo str_repeat("─", 56) . "\n";
 
-        $op = pedirEntero("Opcion", [0, 1, 2]);
+        $op = pedirEntero("Opcion", [0, 1, 2, 3]);
         switch ($op) {
             case 1:
-                limpiarPantalla();
-                listarEquipos($datos);
-                esperarEnter();
+                agregarEquipo($datos);
                 break;
             case 2:
-                limpiarPantalla();
-                agregarEquipo($datos);
+                editarEquipo($datos);
+                break;
+            case 3:
+                eliminarEquipoUI($datos);
                 break;
             case 0:
                 $salir = true;
