@@ -36,5 +36,5 @@ while (!$salir) {
     }
 }
 
-// TODO: cuando uses MySQL, agrega aqui: $conn->close();
+$conn->close(); // Cerrar conexion de base de datos
 echo "\nHasta luego.\n";

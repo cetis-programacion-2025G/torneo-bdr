@@ -1,12 +1,10 @@
 <?php
-// TODO (MySQL):
-// INSERT INTO equipos (nombre, ciudad) VALUES (?, ?)
-function insertarEquipo(&$datos, $nombre, $ciudad) {
-    $nuevo = [
-        'id'     => count($datos['equipos']) + 1,
-        'nombre' => $nombre,
-        'ciudad' => $ciudad,
-    ];
-    $datos['equipos'][] = $nuevo;
-    return $nuevo['id'];
+function insertarEquipo($conn, $nombre, $ciudad) {
+    $insert = "INSERT INTO equipos (nombre, ciudad) VALUES (?, ?)";
+    $stmt = $conn->prepare($insert);
+    $stmt->bind_param("ss", $nombre, $ciudad);
+    $stmt->execute();
+    $nuevoId = $stmt->insert_id;
+    $stmt->close();
+    return $nuevoId;
 }

@@ -17,7 +17,7 @@ function menuEquipos(&$datos, $conn) {
         $op = pedirEntero("Opcion", [0, 1, 2, 3]);
         switch ($op) {
             case 1:
-                agregarEquipo($datos);
+                agregarEquipo($conn);
                 break;
             case 2:
                 editarEquipo($datos);
