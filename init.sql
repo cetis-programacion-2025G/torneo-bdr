@@ -18,3 +18,20 @@ CREATE TABLE partidos (
     FOREIGN KEY (equipo_local_id) REFERENCES equipos(id) ON DELETE CASCADE,
     FOREIGN KEY (equipo_visitante_id) REFERENCES equipos(id) ON DELETE CASCADE
 );
+
+
+INSERT INTO equipos (nombre, ciudad) VALUES 
+    ('Los Toros', 'Guadalajara'),
+    ('Los Tigres', 'Monterrey'),
+    ('Las Aguilas', 'Ciudad de Mexico'),
+    ('Los Rayados', 'Monterrey'),
+    ('Las Chivas', 'Guadalajara');
+
+
+INSERT INTO partidos (equipo_local_id, equipo_visitante_id, goles_local, goles_visitante, estado) 
+VALUES
+    (1, 2, 2, 1, 1),
+    (3, 4, 0, 0, 0),
+    (5, 1, 3, 1, 1),
+    (2, 3, 0, 0, 0);
+   
