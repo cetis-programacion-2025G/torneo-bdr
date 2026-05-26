@@ -1,9 +1,10 @@
 <?php
-function buscarEquipo(&$datos, $id) {
-    for ($i = 0; $i < count($datos['equipos']); $i++) {
-        if ($datos['equipos'][$i]['id'] === $id) {
-            return $datos['equipos'][$i];
-        }
-    }
-    return null;
+function buscarEquipo($conn, $id) {
+    $consulta = "SELECT id, nombre, ciudad FROM equipos WHERE id = ?";
+    $stmt = $conn->prepare($consulta);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    $resultado = $resultado->fetch_assoc();
+    return $resultado;
 }

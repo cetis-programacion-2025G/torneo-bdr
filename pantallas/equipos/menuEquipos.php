@@ -20,7 +20,7 @@ function menuEquipos(&$datos, $conn) {
                 agregarEquipo($conn);
                 break;
             case 2:
-                editarEquipo($datos);
+                editarEquipo($datos, $conn);
                 break;
             case 3:
                 eliminarEquipoUI($datos);
