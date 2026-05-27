@@ -1,6 +1,6 @@
 <?php
-function listarPartidos(&$datos) {
-    $filas = obtenerPartidos($datos);
+function listarPartidos($conn) {
+    $filas = obtenerPartidos($conn);
     $columnas = [
         ['titulo' => 'ID',        'clave' => 'id',              'ancho' => 4],
         ['titulo' => 'Local',     'clave' => 'local',           'ancho' => 16],

@@ -1,26 +1,17 @@
 <?php
-function obtenerPartidos(&$datos) {
-    $resultado = [];
-    for ($i = 0; $i < count($datos['partidos']); $i++) {
-        $p         = $datos['partidos'][$i];
-        $local     = null;
-        $visitante = null;
-        for ($j = 0; $j < count($datos['equipos']); $j++) {
-            if ($datos['equipos'][$j]['id'] === $p['id_local']) {
-                $local     = $datos['equipos'][$j];
-            }
-            if ($datos['equipos'][$j]['id'] === $p['id_visitante']) {
-                $visitante = $datos['equipos'][$j];
-            }
-        }
-        $resultado[] = [
-            'id'              => $p['id'],
-            'local'           => $local     ? $local['nombre']     : '(desconocido)',
-            'visitante'       => $visitante ? $visitante['nombre'] : '(desconocido)',
-            'goles_local'     => $p['goles_local'],
-            'goles_visitante' => $p['goles_visitante'],
-            'jugado'          => $p['jugado'] ? 'Jugado' : 'Pendiente',
-        ];
-    }
-    return $resultado;
+function obtenerPartidos($conn) {
+    $query = "
+        SELECT 
+            p.id,
+            el.nombre AS local,
+            ev.nombre AS visitante,
+            p.goles_local,
+            p.goles_visitante,
+            IF(p.estado = 1, 'Jugado', 'Pendiente') AS jugado
+        FROM partidos as p
+        INNER JOIN equipos as el ON p.equipo_local_id = el.id
+        INNER JOIN equipos as ev ON p.equipo_visitante_id = ev.id
+    ;";
+    $resultado = $conn->query($query);
+    return $resultado->fetch_all(MYSQLI_ASSOC);
 }

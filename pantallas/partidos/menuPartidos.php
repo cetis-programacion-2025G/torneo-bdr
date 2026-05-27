@@ -1,11 +1,11 @@
 <?php
-function menuPartidos(&$datos) {
+function menuPartidos(&$datos, $conn) {
     $salir = false;
     while (!$salir) {
         limpiarPantalla();
         echo "\n";
         titulo("PARTIDOS", 70);
-        listarPartidos($datos);
+        listarPartidos($conn);
         echo "\n";
         echo str_repeat("─", 72) . "\n";
         echo " 1. Programar partido\n";

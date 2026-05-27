@@ -28,7 +28,7 @@ while (!$salir) {
             menuEquipos($conn);
             break;
         case 2:
-            menuPartidos($datos);
+            menuPartidos($datos, $conn);
             break;
         case 0:
             $salir = true;
