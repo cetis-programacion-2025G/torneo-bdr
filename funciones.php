@@ -11,7 +11,6 @@ require_once 'funciones/limpiarPantalla.php';
 require_once 'funciones/esperarEnter.php';
 require_once 'funciones/pedirEntero.php';
 require_once 'funciones/dibujarTabla.php';
-require_once 'funciones/datos.php';
 require_once 'funciones/conexion.php';
 
 // --- DB: Equipos ---
@@ -25,6 +24,7 @@ require_once 'db/equipos/eliminarEquipo.php';
 require_once 'db/partidos/obtenerPartidos.php';
 require_once 'db/partidos/insertarPartido.php';
 require_once 'db/partidos/registrarResultado.php';
+require_once 'db/partidos/obtenerPartidosPendientes.php';
 
 // --- Pantallas: Equipos ---
 require_once 'pantallas/equipos/listarEquipos.php';

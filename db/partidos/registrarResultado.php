@@ -1,12 +1,18 @@
 <?php
-function registrarResultado(&$datos, $id_partido, $goles_local, $goles_visitante) {
-    for ($i = 0; $i < count($datos['partidos']); $i++) {
-        if ($datos['partidos'][$i]['id'] === $id_partido) {
-            $datos['partidos'][$i]['goles_local']     = $goles_local;
-            $datos['partidos'][$i]['goles_visitante'] = $goles_visitante;
-            $datos['partidos'][$i]['jugado']          = true;
-            return true;
-        }
+function registrarResultado($conn, $id_partido, $goles_local, $goles_visitante) {
+    $query =
+        "UPDATE partidos 
+         SET 
+            goles_local = ?, 
+            goles_visitante = ?, 
+            estado = 1
+         WHERE 
+            id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("iii", $goles_local, $goles_visitante, $id_partido);
+    if ($stmt->execute()) {
+        return true;
     }
+
     return false;
 }

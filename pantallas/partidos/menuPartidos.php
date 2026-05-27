@@ -1,5 +1,5 @@
 <?php
-function menuPartidos(&$datos, $conn) {
+function menuPartidos($conn) {
     $salir = false;
     while (!$salir) {
         limpiarPantalla();
@@ -19,7 +19,7 @@ function menuPartidos(&$datos, $conn) {
                 programarPartido($conn);
                 break;
             case 2:
-                capturarResultado($datos);
+                capturarResultado($conn);
                 break;
             case 0:
                 $salir = true;

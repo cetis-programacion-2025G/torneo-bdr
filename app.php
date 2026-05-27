@@ -7,7 +7,6 @@
 require_once 'funciones.php';
 
 $conn = conectar();
-$datos = datosIniciales();
 
 $salir = false;
 
@@ -28,7 +27,7 @@ while (!$salir) {
             menuEquipos($conn);
             break;
         case 2:
-            menuPartidos($datos, $conn);
+            menuPartidos($conn);
             break;
         case 0:
             $salir = true;
