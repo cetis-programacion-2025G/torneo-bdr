@@ -1,16 +1,17 @@
 <?php
 // TODO (MySQL):
-// INSERT INTO partidos (id_local, id_visitante, goles_local, goles_visitante, jugado)
-// VALUES (?, ?, 0, 0, 0)
-function insertarPartido(&$datos, $id_local, $id_visitante) {
-    $nuevo = [
-        'id'              => count($datos['partidos']) + 1,
-        'id_local'        => $id_local,
-        'id_visitante'    => $id_visitante,
-        'goles_local'     => 0,
-        'goles_visitante' => 0,
-        'jugado'          => false,
-    ];
-    $datos['partidos'][] = $nuevo;
-    return $nuevo['id'];
+
+function insertarPartido($conn, $id_local, $id_visitante) {
+    $query = 
+        "INSERT INTO partidos 
+            (equipo_local_id, equipo_visitante_id, goles_local, goles_visitante, estado)
+             VALUES 
+            (?, ?, 0, 0, 0)
+        ";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $id_local, $id_visitante);
+    if ($stmt->execute()) {
+        return $stmt->insert_id;
+    }
+    return false;
 }

@@ -16,7 +16,7 @@ function menuPartidos(&$datos, $conn) {
         $op = pedirEntero("Opcion", [0, 1, 2]);
         switch ($op) {
             case 1:
-                programarPartido($datos);
+                programarPartido($conn);
                 break;
             case 2:
                 capturarResultado($datos);

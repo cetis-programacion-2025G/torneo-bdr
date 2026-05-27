@@ -1,15 +1,16 @@
 <?php
-function programarPartido(&$datos) {
+function programarPartido($conn) {
     limpiarPantalla();
     echo "\n";
     titulo("PROGRAMAR PARTIDO", 54);
-    if (count($datos['equipos']) < 2) {
+    $equipos = obtenerEquipos($conn);
+    if (count($equipos) < 2) {
         echo "\n  Se necesitan al menos 2 equipos.\n";
         esperarEnter();
         return;
     }
-    listarEquipos($datos);
-    $ids = array_column($datos['equipos'], 'id');
+    listarEquipos($conn);
+    $ids = array_column($equipos, 'id');
     echo "  (0 para cancelar)\n";
     $id_local     = pedirEntero("ID equipo local",     array_merge($ids, [0]));
     if ($id_local === 0) {
@@ -24,7 +25,7 @@ function programarPartido(&$datos) {
         esperarEnter();
         return;
     }
-    $id = insertarPartido($datos, $id_local, $id_visitante);
+    $id = insertarPartido($conn, $id_local, $id_visitante);
     echo "\n  Partido programado con ID $id.\n";
     esperarEnter();
 }
